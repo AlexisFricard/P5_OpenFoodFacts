@@ -56,7 +56,7 @@ On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfo
 * Permettre à l'utilisateur d'interagir avec la base de données.
 * Enfin, chercher comment enregistrer les données générées par le programme pour que l'utilisateur les retrouve.
 
-## Instalation
+## Instalation & Lancement
 ### Verifier le requirements.txt
 >requests
 mysql-connector-python
