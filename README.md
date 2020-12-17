@@ -76,7 +76,7 @@ Enter password:
 > TIPS !
 > Vous pouvez retrouver le cours sur l'installation et la connexion à MySql [ici.](https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql)
 ### Créer la base de données
-**! Attention** aux sens des "/", sous windows les "\\" ne fonctionnent pas.
+**! Attention** aux sens des "/", sous windows les "\\" ne fonctionnent pas.  
 Création base de données Alimentation et d'un utilisateur USER_A en serveur.local  :
 ```
 mysql> SOURCE C:/Chemin/vers/mon/dossier/app/create_db.sql
