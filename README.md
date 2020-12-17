@@ -58,7 +58,7 @@ On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfo
 
 ## Instalation & Lancement
 ### Verifier le requirements.txt
->requests
+>requests  
 mysql-connector-python
 
 ### Connection à MySql :
