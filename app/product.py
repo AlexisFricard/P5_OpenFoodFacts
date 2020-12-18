@@ -1,8 +1,12 @@
-from MySql_ShortCut import cnx, cursor, add_product
+######################
+### Product Object ###
+######################
+
+from mysql_shortcut import cnx, cursor, add_product
 
 
 class Product:
-    """ Describes MacGyver"""
+
 
     def __init__(self):
 

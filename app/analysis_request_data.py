@@ -1,4 +1,4 @@
-from constants import value_error_msg, duplicate_msg, space, NB_OF_CATEGORYS
+from constants import value_error_msg, duplicate_msg, space, nb_of_category
 from mysql_shortcut import cursor
 
 
@@ -55,17 +55,12 @@ class Analysis_data:
         checking = False
 
         for p_url in self.p_url_list:
-            if product_url == p_url[-15:]:
+            if product_url == p_url:
                 return False
-            elif product_url != p_url[-15:]:
+            elif product_url != p_url:
                 checking = True
                 pass
 
-        if checking == True:
-            self.p_url_list.append(product_url)
-            return True
-
-        ### FOR FIRST LOOP ###
-        if self.p_url_list == []:
+        if (checking == True) or (self.p_url_list == []):
             self.p_url_list.append(product_url)
             return True
