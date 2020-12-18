@@ -2,7 +2,7 @@
 
 from app.mysql_shortcut import (cursor, query_product, query_category,
                                 query_prod_from_cat,
-                                query_sub_table, query_sub_name)
+                                query_sub, query_sub_name)
 
 from app.constants import (principal_menu, select_action_msg, small_barre,
                            menu_opt_0_msg, menu_opt_1_msg, menu_opt_2_msg,
