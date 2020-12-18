@@ -9,7 +9,7 @@ CREATE TABLE Category (
     category_name VARCHAR(75) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 )
-ENGINE=InnoDB;
+ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE Product (
@@ -31,7 +31,3 @@ CREATE TABLE Substitute (
     PRIMARY KEY (id)
 )
 ENGINE=INNODB;
-
-ALTER TABLE Product
-ADD CONSTRAINT fk_cat_id FOREIGN KEY (category_id) REFERENCES category(id)
-ON DELETE CASCADE;

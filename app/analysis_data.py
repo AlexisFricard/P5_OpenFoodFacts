@@ -7,7 +7,7 @@ from app.mysql_shortcut import (cursor, query_all_id_product_cat,
 
 class Analysis_data:
 
-    ### TO RETURN IF THE SELECTED PRODUCT IS ALLREADY IN Substitute TABLE ###
+    # TO RETURN IF THE SELECTED PRODUCT IS ALLREADY IN Substitute TABLE
     def checking_duplicate_substitute(self, product_id, list_of_all_id_sub):
 
         for substituted_id in list_of_all_id_sub:
@@ -17,9 +17,10 @@ class Analysis_data:
             if int(product_id) == int(sub_id):
                 return True
 
-        return False
+        else:
+            return False
 
-    ### METHOD TO CHECK IF USER HAS SELECT RIGHT VALUE ###
+    # METHOD TO CHECK IF USER HAS SELECT RIGHT VALUE
     def checking_right_selection(self):
 
         user_choice = ""
@@ -27,7 +28,8 @@ class Analysis_data:
         while user_choice not in [0, 1, 2]:
 
             try:
-                user_choice = int(input(space*87))
+
+                user_choice = int(input(space * 87))
 
                 if user_choice not in [0, 1, 2]:
                     print(value_error_msg.format(user_choice))
@@ -36,9 +38,10 @@ class Analysis_data:
                 user_choice = ""
                 print(value_error_msg.format(user_choice))
 
-        return user_choice
+        else:
+            return user_choice
 
-    ### METHOD TO CHECK IF USER HAS SELECT RIGHT CATEGORY ###
+    # METHOD TO CHECK IF USER HAS SELECT RIGHT CATEGORY
     def checking_right_category(self):
 
         category_id = ""
@@ -46,7 +49,8 @@ class Analysis_data:
         while category_id not in range(0, nb_of_category):
 
             try:
-                category_id = int(input(space*87))
+
+                category_id = int(input(space * 87))
 
                 if category_id not in range(0, nb_of_category):
                     print(value_error_msg.format(category_id))
@@ -55,9 +59,10 @@ class Analysis_data:
                 category_id = ""
                 print(value_error_msg.format(category_id))
 
-        return category_id
+        else:
+            return category_id
 
-    ### METHOD TO CHECK IF USER HAS SELECT RIGHT PRODUCT ###
+    # METHOD TO CHECK IF USER HAS SELECT RIGHT PRODUCT
     def checking_right_value(self, category_id):
 
         cursor.execute(query_all_id_product_cat.format(category_id))
@@ -70,7 +75,8 @@ class Analysis_data:
         while checking is not True:
 
             try:
-                product_id = int(input(space*87))
+
+                product_id = int(input(space * 87))
                 sub_allready_exist = self.checking_duplicate_substitute(
                     product_id, list_of_all_id_substitute)
 
@@ -88,8 +94,7 @@ class Analysis_data:
                 elif sub_allready_exist is True:
 
                     print(duplicate_msg)
-                    product_id = False
-                    return product_id
+                    return None
 
                 print(value_error_msg.format(product_id))
 

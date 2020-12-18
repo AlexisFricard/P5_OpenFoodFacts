@@ -2,17 +2,13 @@
 
 import mysql.connector
 
-######################
-### MySql SHORTCUT ###
-######################
+# MySql SHORTCUT
 
-cnx = mysql.connector.connect(user='USER_A', password='USER_A',database='Alimentation')
+cnx = mysql.connector.connect(
+    user='USER_A', password='USER_A', database='Alimentation')
 cursor = cnx.cursor(buffered=True)
 
-##########################
-### Mysql instructions ###
-###      SHORTCUT      ###
-##########################
+# Mysql instructions
 
 add_product    = ("INSERT INTO Product "
                   "(product_name, nutriscore, stores, url) "
@@ -38,5 +34,5 @@ query_all_id_cat             = ("SELECT id FROM Category")
 query_all_sub_id_from_sub    = ("SELECT substituted_id FROM Substitute")
 query_all_prd_id_from_sub    = ("SELECT product_id FROM Substitute")
 query_category               = ("SELECT * FROM Category ORDER BY id")
-query_sub_table              = ("SELECT product_name, nutriscore, stores, url, substituted_id "
+query_sub                    = ("SELECT product_name, nutriscore, stores, url, substituted_id "
                                 "FROM Product INNER JOIN Substitute ON Product.id = Substitute.product_id")

@@ -1,12 +1,9 @@
-######################
-### Product Object ###
-######################
+""" Product Object """
 
 from mysql_shortcut import cnx, cursor, add_product
 
 
 class Product:
-
 
     def __init__(self):
 

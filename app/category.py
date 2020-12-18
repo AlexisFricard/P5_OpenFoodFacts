@@ -1,6 +1,4 @@
-#######################
-### Category Object ###
-#######################
+# Category Object
 
 from mysql_shortcut import (cnx, cursor, add_category,
                             query_cat_id, update_category_id)
