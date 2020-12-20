@@ -27,35 +27,6 @@ L'utilisateur sélectionne l'aliment.
 
 * L'utilisateur a alors la possibilité d'enregistrer le résultat dans la base de données.
 
-
-## Etapes
-
-### I - Organiser son travail
-
-* Découper le programme en user stories puis en tâches et sous-tâches.  
-* Créer un tableau agile [**Trello**](https://trello.com/) et affectez des deadlines.  
-* Avant de coder, initialiser un repo Github et faires le premier push.  
-* Créer simplement un fichier texte appelé Readme.txt.  
-
-### II - Construire la base de données
-
-* Quelles informations allons-nous enregistrer ? 
-* Quelles données allons-nous manipuler ?
->La base Open Food Facts a une API qui nous permet de récupérer les données voulues au format JSON.
-On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfoodfacts.org/API)
-* Créer la base de données : tables et clés étrangères.  
-* Ecrire un script Python qui insèrera les données récoltées de l'API dans notre base.  
-
-### III - Construire le programme
-
-* Lister les fonctionnalités de notre programme pour s'interroger sur les responsabilités de chaque classe. 
-* Puis construire l'architecture voulue.
-
-### IV - Interagir avec la base de données 
-
-* Permettre à l'utilisateur d'interagir avec la base de données.
-* Enfin, chercher comment enregistrer les données générées par le programme pour que l'utilisateur les retrouve.
-
 ## Installation & Lancement
 ### Connection à MySql :
 >Pensez à remplacer le chemin complet vers votre dossier source, évidemment.
