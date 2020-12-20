@@ -1,7 +1,7 @@
 # Category Object
 
 from mysql_shortcut import (cnx, cursor, add_category,
-                            query_cat_id, update_category_id)
+                            query_category_id, update_category_id)
 
 
 class Category:
@@ -20,7 +20,7 @@ class Category:
 
     def update(self, category_name):
 
-        request = (query_cat_id.format(category_name))
+        request = (query_category_id.format(category_name))
         cursor.execute(request)
 
         cat_id = cursor.fetchone()

@@ -1,83 +1,88 @@
 """ Analaysis_data file """
 
-from app.constants import value_error_msg, duplicate_msg, space, nb_of_category
-from app.mysql_shortcut import (cursor, query_all_id_product_cat,
-                                query_all_sub_id_from_sub)
+from app.constants import (value_error_msg, duplicate_msg, space, barre,
+                           data_saved, nb_of_category, letter_or_symb_msg,
+                           sub_tab_erased)
+
+from app.mysql_shortcut import (cnx, cursor,
+                                del_sub_tab, fill_sub_table,
+                                query_all_sub_id_from_sub,
+                                query_prod_id_where_cat_id)
 
 
-class Analysis_data:
+# FONCTION TO CHECK IF USER'S PRODUCT IS NOT ALLREADY IN SUBSITUTE TABLE
+def checking_duplicate_substitute(product_id, list_of_all_id_sub):
 
-    # TO RETURN IF THE SELECTED PRODUCT IS ALLREADY IN Substitute TABLE
-    def checking_duplicate_substitute(self, product_id, list_of_all_id_sub):
+    for substituted_id in list_of_all_id_sub:
 
-        for substituted_id in list_of_all_id_sub:
+        sub_id = substituted_id[0]
 
-            sub_id = substituted_id[0]
+        if int(product_id) == int(sub_id):
+            return True
 
-            if int(product_id) == int(sub_id):
-                return True
+    else:
+        return False
 
-        else:
-            return False
 
-    # METHOD TO CHECK IF USER HAS SELECT RIGHT VALUE
-    def checking_right_selection(self):
+# FONCTION TO CHECK IF USER HAS SELECT A RIGHT VALUE
+def checking_right_selection():
 
-        user_choice = ""
+    user_choice = ""
 
-        while user_choice not in [0, 1, 2]:
+    while user_choice not in [0, 1, 2, 3]:
 
-            try:
+        try:
 
-                user_choice = int(input(space * 87))
+            user_choice = int(input(space * 87))
 
-                if user_choice not in [0, 1, 2]:
-                    print(value_error_msg.format(user_choice))
-
-            except ValueError:
-                user_choice = ""
+            if user_choice not in [0, 1, 2, 3]:
                 print(value_error_msg.format(user_choice))
 
-        else:
-            return user_choice
+        except ValueError:
+            print(value_error_msg.format(letter_or_symb_msg))
 
-    # METHOD TO CHECK IF USER HAS SELECT RIGHT CATEGORY
-    def checking_right_category(self):
+    else:
+        return user_choice
 
-        category_id = ""
 
-        while category_id not in range(0, nb_of_category):
+# FONCTION TO CHECK IF USER HAS SELECT A RIGHT CATEGORY
+def checking_right_category():
 
-            try:
+    category_id = ""
 
-                category_id = int(input(space * 87))
+    while category_id not in range(0, nb_of_category):
 
-                if category_id not in range(0, nb_of_category):
-                    print(value_error_msg.format(category_id))
+        try:
 
-            except ValueError:
-                category_id = ""
+            category_id = int(input(space * 87))
+
+            if category_id not in range(0, nb_of_category):
                 print(value_error_msg.format(category_id))
 
-        else:
-            return category_id
+        except ValueError:
+            print(value_error_msg.format(letter_or_symb_msg))
 
-    # METHOD TO CHECK IF USER HAS SELECT RIGHT PRODUCT
-    def checking_right_value(self, category_id):
+    else:
+        return category_id
 
-        cursor.execute(query_all_id_product_cat.format(category_id))
-        list_of_id_product = cursor.fetchall()
 
-        cursor.execute(query_all_sub_id_from_sub)
-        list_of_all_id_substitute = cursor.fetchall()
+# FONCTION TO CHECK IF USER HAS SELECT A "VALID" PRODUCT
+def checking_right_value(category_id):
 
-        checking = False
-        while checking is not True:
+    cursor.execute(query_prod_id_where_cat_id.format(category_id))
+    list_of_id_product = cursor.fetchall()
 
-            try:
+    cursor.execute(query_all_sub_id_from_sub)
+    list_of_all_id_substitute = cursor.fetchall()
 
-                product_id = int(input(space * 87))
-                sub_allready_exist = self.checking_duplicate_substitute(
+    checking = False
+    while checking is not True:
+
+        try:
+
+            product_id = int(input(space * 87))
+            if product_id != 0:
+                sub_allready_exist = checking_duplicate_substitute(
                     product_id, list_of_all_id_substitute)
 
                 if sub_allready_exist is False:
@@ -92,12 +97,65 @@ class Analysis_data:
                             return product_id
 
                 elif sub_allready_exist is True:
-
+                    product_id = 0
+                    print(barre)
                     print(duplicate_msg)
-                    return None
+            if product_id == 0:
+                return None
 
-                print(value_error_msg.format(product_id))
+            print(value_error_msg.format(product_id))
 
-            except ValueError:
-                product_id = ""
-                print(value_error_msg.format(product_id))
+        except ValueError:
+            print(value_error_msg.format(letter_or_symb_msg))
+
+
+# FONCTION TO SAVE SUBSTITUTION
+def checking_save_option(substitute_id, product_id):
+
+    save_choice = ""
+    while save_choice not in [0, 1]:
+
+        try:
+
+            save_choice = int(input(space * 87))
+
+            if save_choice == 1:
+
+                substitute_data = [substitute_id, product_id]
+
+                cursor.execute(fill_sub_table, substitute_data)
+
+                cnx.commit()
+                print(barre, data_saved)
+
+            elif save_choice == 0:
+                return
+
+            else:
+                print(value_error_msg.format(save_choice))
+
+        except ValueError:
+            print(value_error_msg.format(letter_or_symb_msg))
+
+
+# FUNCTION TO CHECK WHICH DELETION OPTION THE USER HAS SELECTED
+def checking_delete_option():
+
+    del_option = ""
+    while del_option not in [0, 1]:
+
+        try:
+
+            del_option = int(input(space * 87))
+
+            if del_option == 0:
+                return
+
+            elif del_option == 1:
+                cursor.execute(del_sub_tab)
+                cnx.commit()
+                print(barre)
+                print(sub_tab_erased)
+
+        except ValueError:
+            print(value_error_msg.format(letter_or_symb_msg))
