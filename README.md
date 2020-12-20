@@ -56,19 +56,18 @@ On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfo
 * Permettre à l'utilisateur d'interagir avec la base de données.
 * Enfin, chercher comment enregistrer les données générées par le programme pour que l'utilisateur les retrouve.
 
-## Instalation & Lancement
+## Installation & Lancement
 ### Verifier le requirements.txt
->requests  
-mysql-connector-python
+Dans l'invite de commandes :
+```
+>pip3 install -r requirements.txt
+```
 
 ### Connection à MySql :
 >Pensez à remplacer **MonServeur** par le nom de votre dossier ou 
 remplacez le chemin complet vers votre dossier source, évidemment.
 
 Ouvrez une invite de commande
-```
->cd C:\Program Files\MySQL\MonServeur\bin
-```
 ```
 C:\Program Files\MySQL\MonServeur\bin> mysql -u root -p
 Enter password:
@@ -89,8 +88,7 @@ mysql> exit
 ### Remplir la base de données
 Ouvrez une invite de commandes ou rester sur la même et rentrez :
 ```
->cd Chemin/vers/mon/dossier/app
->py fill_database.py
+Chemin/vers/mon/dossier/app>py fill_database.py
 ```
 Cela devrais vous afficher :
 ```
@@ -98,5 +96,5 @@ Les données ont été remplacé par de nouvelles données
 ```
 ### Lancer l'application
 ```
-Chemin/vers/mon/dossier> py main.py
+Chemin/vers/mon/dossier>py main.py
 ```
