@@ -57,17 +57,11 @@ On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfo
 * Enfin, chercher comment enregistrer les données générées par le programme pour que l'utilisateur les retrouve.
 
 ## Installation & Lancement
-### Verifier le requirements.txt
-Dans l'invite de commandes :
-```
->pip3 install -r requirements.txt
-```
-
 ### Connection à MySql :
 >Pensez à remplacer **MonServeur** par le nom de votre dossier ou 
 remplacez le chemin complet vers votre dossier source, évidemment.
 
-Ouvrez une invite de commande
+Ouvrez une invite de commandes :
 ```
 C:\Program Files\MySQL\MonServeur\bin> mysql -u root -p
 Enter password:
@@ -93,6 +87,11 @@ Chemin/vers/mon/dossier/app>py fill_database.py
 Cela devrais vous afficher :
 ```
 Les données ont été remplacé par de nouvelles données
+```
+### Installer le requirements.txt
+Dans l'invite de commandes :
+```
+Chemin/vers/mon/dossier>pip3 install -r requirements.txt
 ```
 ### Lancer l'application
 ```
