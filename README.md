@@ -58,40 +58,42 @@ On peux consulter la documentation de cette API [**ici.**](http://en.wiki.openfo
 
 ## Installation & Lancement
 ### Connection à MySql :
->Pensez à remplacer **MonServeur** par le nom de votre dossier ou 
-remplacez le chemin complet vers votre dossier source, évidemment.
+>Pensez à remplacer le chemin complet vers votre dossier source, évidemment.
 
 Ouvrez une invite de commandes :
 ```
-C:\Program Files\MySQL\MonServeur\bin> mysql -u root -p
+Chemin\Vers\MySQL\MonServeur\bin> mysql -u root -p
 Enter password:
 ```
 > TIPS !
 > Vous pouvez retrouver le cours sur l'installation et la connexion à MySql [ici.](https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql)
 ### Créer la base de données
 **! Attention** aux sens des "/", sous windows les "\\" ne fonctionnent pas.  
-Création base de données Alimentation et d'un utilisateur USER_A en serveur.local  :
+Création de la base de données 'Alimentation':
 ```
-mysql> SOURCE C:/Chemin/vers/mon/dossier/app/create_db.sql
+mysql> SOURCE C:/Chemin/Vers/Mon/Dossier/app/create_db.sql
 ```
 ### Vider & Créer les tables de la base de données
 ```
-mysql> SOURCE C:/Chemin/vers/mon/dossier/app/initialize_db.sql
-mysql> exit
+mysql> SOURCE C:/Chemin/Vers/Mon/Dossier/app/initialize_db.sql
+```
+### Créer un USER_A
+Vous pouvez, remplacer les identifiants par les votres dans app/mysql_shortcut.py sans passer par cette étape.
+Sinon :
+```
+mysql> SOURCE C:/Chemin/Vers/Mon/Dossier/app/create_user.sql
 ```
 ### Remplir la base de données
-Ouvrez une invite de commandes ou rester sur la même et rentrez :
 ```
-Chemin/vers/mon/dossier/app>py fill_database.py
+Chemin/Vers/Mon/Dossier/app>py fill_database.py
 ```
 Cela devrais vous afficher :
 ```
 Les données ont été remplacé par de nouvelles données
 ```
 ### Installer le requirements.txt
-Dans l'invite de commandes :
 ```
-Chemin/vers/mon/dossier>pip3 install -r requirements.txt
+Chemin/Vers/Mon/Dossier>pip3 install -r requirements.txt
 ```
 ### Lancer l'application
 ```
