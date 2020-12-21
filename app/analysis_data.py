@@ -10,20 +10,6 @@ from app.mysql_shortcut import (cnx, cursor,
                                 query_prod_id_where_cat_id)
 
 
-# FONCTION TO CHECK IF USER'S PRODUCT IS NOT ALLREADY IN SUBSITUTE TABLE
-def checking_duplicate_substitute(product_id, list_of_all_id_sub):
-
-    for substituted_id in list_of_all_id_sub:
-
-        sub_id = substituted_id[0]
-
-        if int(product_id) == int(sub_id):
-            return True
-
-    else:
-        return False
-
-
 # FONCTION TO CHECK IF USER HAS SELECT A RIGHT VALUE
 def checking_right_selection():
 
@@ -107,6 +93,20 @@ def checking_right_value(category_id):
 
         except ValueError:
             print(value_error_msg.format(letter_or_symb_msg))
+
+
+# FONCTION TO CHECK IF USER'S PRODUCT IS NOT ALLREADY IN SUBSITUTE TABLE
+def checking_duplicate_substitute(product_id, list_of_all_id_sub):
+
+    for substituted_id in list_of_all_id_sub:
+
+        sub_id = substituted_id[0]
+
+        if int(product_id) == int(sub_id):
+            return True
+
+    else:
+        return False
 
 
 # FONCTION TO SAVE SUBSTITUTION

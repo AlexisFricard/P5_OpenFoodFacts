@@ -119,6 +119,7 @@ def display_substitutes():
                 print("| URL             |   ", url)
                 print(small_barre)
                 print(barre)
+
     print(back_to_menu_msg)
     print(barre)
     input(space * 87)
