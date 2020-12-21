@@ -1,4 +1,20 @@
-""" main file """
+# !/usr/bin/python3.8
+# -*- coding: Utf-8 -*
+
+"""
+Substitute Food application
+
+Use a database 'Alimentation' to find and replace poor quality food
+
+Script python3.8
+
+Files :
+Common      -> constants.py, mysql_shortcut.py
+Application -> main.py, analysis_data.py, display.py
+DataBase    -> create_db.sql, initialize_db.sql, create_user.sql, product.py,
+               fill_database.py, category.py, analysis_request_data.py
+ """
+
 
 import random
 
