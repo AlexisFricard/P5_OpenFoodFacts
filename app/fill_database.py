@@ -25,9 +25,6 @@ def load_data(category):
     nb_page = 1
     url_end = 'json'
     url = "{}/{}/{}.{}".format(url_begin, category, nb_page, url_end)
-
-    # INITIALIZE CLASS FOR BUILD OBJECT
-
     # INITIALIZE VAR nb_of_products
     nb_of_products = 0
 
@@ -45,7 +42,6 @@ def load_data(category):
         product_url = None
         stores = None
 
-        # LOOP FOR BUILD PRODUC OBJECT
         for prod in products["products"]:
 
             product_name = prod.get("product_name_fr", None)
@@ -54,7 +50,6 @@ def load_data(category):
             product_url = prod.get("url", None)
             p_data = (product_name, nutriscore, stores, product_url)
 
-            # ANALYSIS EMPTY FIELD, DUPLICATE NAME AND DUPLICATE URL
             analysis_p_data = analysis.data_checking(p_data)
 
             # DATA IS OK (TRUE) ADD IT TO DATABASE
