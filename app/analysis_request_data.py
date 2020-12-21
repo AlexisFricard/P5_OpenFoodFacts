@@ -51,15 +51,8 @@ class Analysis_data:
     # METHOD TO RETURN TRUE OR FALSE IF THE END OF URL IS IN DOUBLE
     def checking_duplicate_url(self, product_url):
 
-        checking = False
-
-        for p_url in self.p_url_list:
-            if product_url == p_url:
-                return False
-            elif product_url != p_url:
-                checking = True
-                pass
-
-        if (checking is True) or (self.p_url_list == []):
+        if product_url not in self.p_url_list:
             self.p_url_list.append(product_url)
             return True
+        else:
+            return False
