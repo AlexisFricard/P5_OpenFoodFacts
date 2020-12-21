@@ -126,7 +126,8 @@ def checking_save_option(substitute_id, product_id):
                 cursor.execute(fill_sub_table, substitute_data)
 
                 cnx.commit()
-                print(barre, data_saved)
+                print(barre)
+                print(data_saved)
 
             elif save_choice == 0:
                 return
