@@ -56,3 +56,7 @@ class Analysis_data:
             return True
         else:
             return False
+
+    def del_lists(self):
+        self.p_name_list = []
+        self.p_url_list = []
