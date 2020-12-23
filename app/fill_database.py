@@ -9,10 +9,6 @@ import category as cat
 
 from constants import CATEGORYS
 
-cnx = mysql.connector.connect(
-    user='USER_A', password='USER_A', database='Alimentation')
-cursor = cnx.cursor(buffered=True)
-
 # INITIALIZE ANALYSIS METHODES
 analysis = ad.Analysis_data()
 product = prd.Product()
