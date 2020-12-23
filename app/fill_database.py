@@ -66,6 +66,7 @@ def load_data(category):
     categ = cat.Category()
     categ.add(category)
     categ.update(category)
+    analysis.del_lists()
 
 
 if __name__ == "__main__":
