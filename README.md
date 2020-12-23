@@ -37,14 +37,13 @@ Chemin\Vers\MySQL\MonServeur\bin> mysql -u root -p
 Enter password:
 ```
 > TIPS !
-> Vous pouvez retrouver le cours sur l'installation et la connexion à MySql [ici.](https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql)
-### Créer la base de données
+> Vous pouvez retrouver le cours sur l'installation et la connexion à MySql [ici.](https://openclassrooms.com/fr/courses/1959476-administrez-vos-bases-de-donnees-avec-mysql/1959969-installez-mysql)  
 
 ### Intégralement 
 
 **! Attention** aux sens des "/", sous windows les "\\" ne fonctionnent pas.  
 ```
-mysql> SOURCE C:/Chemin/Vers/Mon/Dossier/app/create_db.sql
+mysql> SOURCE C:/Chemin/Vers/Mon/Dossier/app/create_all.sql
 ```
 ### Création de la base de données 'Alimentation':
 ```
